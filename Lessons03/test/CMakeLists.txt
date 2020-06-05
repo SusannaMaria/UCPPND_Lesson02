@@ -1,6 +1,9 @@
 add_executable(
     unit_tests
     test_heuristic.cpp
+    test_addtoopen.cpp
+    test_compare.cpp 
+    test_search.cpp  
     ../astar_maze.cpp
     )
 
