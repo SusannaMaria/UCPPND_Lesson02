@@ -3,18 +3,18 @@
 
 TEST(Search_1, lessons3)
 {
-    int goal[2]{4, 5};
+  int init[2]{0, 0};
+  int goal[2]{4, 5};
+      const string filename = "/home/susanna/UCPPND_Lesson02/Lessons02/1.board";
+  auto board = ReadBoardFile(filename);
+    vector<vector<State>> solution{{State::kPath, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kPath, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kPath, State::kObstacle, State::kEmpty, State::kClosed, State::kClosed, State::kClosed},
+                            {State::kPath, State::kObstacle, State::kClosed, State::kPath, State::kPath, State::kPath},
+                            {State::kPath, State::kPath, State::kPath, State::kPath, State::kObstacle, State::kPath}};
 
-    const string filename = "/home/susanna/UCPPND_Lesson02/Lessons02/1.board";
-    auto board = ReadBoardFile(filename);
-  
-    auto output = Search(board, goal, goal);
-    vector<vector<State>> solution{{State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty, State::kObstacle, State::kPath}};
-
+  std::cout.setstate(std::ios_base::failbit); // Disable cout
+  auto output = Search(board, init, goal);
     ASSERT_EQ(output,solution);
 }
 

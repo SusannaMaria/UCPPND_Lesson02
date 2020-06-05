@@ -5,6 +5,7 @@ add_executable(
     test_compare.cpp 
     test_search.cpp  
     test_validcell.cpp
+    test_neighbors.cpp
     ../astar_maze.cpp
     )
 

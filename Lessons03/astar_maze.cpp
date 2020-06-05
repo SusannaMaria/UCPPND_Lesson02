@@ -49,6 +49,7 @@ std::vector<vector<State>> Search(vector<vector<State>> &board, int init[2], int
       if ((curr_node[0] == goal[0]) && (curr_node[1] == goal[1])){
         return board;
       }
+      ExpandNeighbors(curr_node, goal, open, board);
     } 
   
     cout << "No path found!" << endl;
@@ -66,9 +67,11 @@ string CellString(State cell)
     switch (cell)
     {
     case State::kObstacle:
-        return "⛰️ ";
+        return "⛰️\t";
+    case State::kPath:
+        return "🚗\t";        
     default:
-        return "0 ";
+        return "0\t";
     }
 }
 
@@ -145,4 +148,18 @@ bool CheckValidCell(int x, int y, vector<vector<State>> &board){
     }
   }
   return false;
+}
+
+void ExpandNeighbors(std::vector<int> &curr_node, int goal[2], vector<vector<int>> &open_nodes,vector<vector<State>> &board){
+  int x=curr_node[0];
+  int y=curr_node[1];
+  for(auto d : delta){
+    int x2 = x+d[0];
+    int y2 = y+d[1];
+    if (CheckValidCell(x2,y2,board)){
+      int g = curr_node[2]+1;
+      int h = Heuristic(x2,y2,goal[0],goal[1]);
+      AddToOpen(x2, y2, g, h, open_nodes, board);
+    }
+  }
 }

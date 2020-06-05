@@ -23,7 +23,8 @@ enum class State
     kClosed,
     kPath
 };
-
+// directional deltas
+const int delta[4][2]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 
 std::vector<vector<State>> Search(vector<vector<State>> &board, int init[2], int goal[2]);
 int Heuristic(int x1, int y1, int x2, int y2);
@@ -37,3 +38,5 @@ void PrintVectorOfVectors(vector<vector<State>> v);
 bool Compare(const vector<int> &a, const vector<int> &b);
 void CellSort(vector<vector<int>> *v);
 bool CheckValidCell(int x, int y, vector<vector<State>> &board);
+void ExpandNeighbors(std::vector<int> &curr_node, int goal[2], vector<vector<int>> &open_nodes,vector<vector<State>> &board);
+
