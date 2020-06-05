@@ -10,6 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # add the executable
 add_executable(hello hello.cpp)
 add_executable(primitivetype primitivetype.cpp)
+add_executable(storegrid store_grid.cpp)
 
 include(CTest)
 enable_testing()
