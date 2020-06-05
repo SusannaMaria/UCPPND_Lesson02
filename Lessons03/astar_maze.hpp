@@ -36,3 +36,4 @@ void PrintVectorOfVectors(vector<vector<int>> v);
 void PrintVectorOfVectors(vector<vector<State>> v);
 bool Compare(const vector<int> &a, const vector<int> &b);
 void CellSort(vector<vector<int>> *v);
+bool CheckValidCell(int x, int y, vector<vector<State>> &board);

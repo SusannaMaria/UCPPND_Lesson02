@@ -137,3 +137,12 @@ bool Compare(const vector<int> &a, const vector<int> &b){
 void CellSort(vector<vector<int>> *v) {
   sort(v->begin(), v->end(), Compare);
 }
+
+bool CheckValidCell(int x, int y, vector<vector<State>> &board){
+  if ((x>=0) && (x< board.size()) && (y>=0) && (y<board[0].size())) {
+    if (board[x][y] == State::kEmpty){
+      return true;
+    }
+  }
+  return false;
+}

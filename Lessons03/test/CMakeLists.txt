@@ -4,6 +4,7 @@ add_executable(
     test_addtoopen.cpp
     test_compare.cpp 
     test_search.cpp  
+    test_validcell.cpp
     ../astar_maze.cpp
     )
 
