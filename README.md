@@ -1,9 +1,9 @@
 # UCPPND_Lesson02
 Code examples from Udacity C++ Nanodegree Lesson02. Just try to provide a structure to code, build and execute the examples using CMake.
 
-I assume the Udacity C++ ND is taking C++17 under consideration. On my machine, a tiny little Lenovo X240, I'm running XUbuntu20.04 g++ version 9.3.0 and cmake 3.16 is used. 
+I assume the Udacity C++ ND is taking C++17 under consideration. On my machine, a tiny little Lenovo X240, I'm running Xubuntu20.04, so g++ version 9.3.0 and cmake 3.16 is used. 
 
-Using Visual Studio Code with:
+Using Visual Studio Code with plugins:
 
 ![](static/code-plugins_cpp.png)
 
