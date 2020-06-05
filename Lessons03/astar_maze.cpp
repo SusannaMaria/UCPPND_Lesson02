@@ -35,6 +35,8 @@ std::vector<vector<State>> Search(vector<vector<State>> &board, int init[2], int
     int y = init[1];
     int g = 0;
     int h = Heuristic(x,y,goal[0],goal[1]);
+
+
   
     AddToOpen(x,y,g,h, open, board);
     
@@ -47,11 +49,13 @@ std::vector<vector<State>> Search(vector<vector<State>> &board, int init[2], int
       board[curr_node[0]][curr_node[1]] = State::kPath;
 
       if ((curr_node[0] == goal[0]) && (curr_node[1] == goal[1])){
+        board[x][y]=State::kStart;
+        board[goal[0]][goal[1]]=State::kFinish;        
         return board;
       }
       ExpandNeighbors(curr_node, goal, open, board);
     } 
-  
+
     cout << "No path found!" << endl;
 
     return result;
@@ -69,7 +73,11 @@ string CellString(State cell)
     case State::kObstacle:
         return "⛰️\t";
     case State::kPath:
-        return "🚗\t";        
+        return "🚗\t";  
+    case State::kStart:
+        return "🚦\t";   
+    case State::kFinish:
+        return "🏁\t";                         
     default:
         return "0\t";
     }
